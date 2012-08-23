@@ -32,6 +32,9 @@ var processorSetup = function($, processors) {
 
 		if(url.search(regularIG) != -1 ) {
 			var igId = url.substring(url.indexOf("/p/") + 3 );
+			if(igId.substr(-1) !== "/") {
+				igId = igId + "/";
+			}
 			return imgHtml.replace("~~~", url).replace("~ID~", igId);
 		}
 	});
