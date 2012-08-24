@@ -8,5 +8,10 @@
             "matches": [ "http://alpha.app.net/*", "https://alpha.app.net/*" ],
             "js":      [ "lib/jquery-1.8.0.min.js", "processors.js", "media-expander.js" ]
         }
+    ],
+    "permissions": [
+        "http://alpha.app.net/*",
+        "https://alpha.app.net/*",
+        "https://api.twitter.com/*"
     ]
  } 

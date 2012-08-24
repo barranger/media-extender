@@ -8,10 +8,9 @@
             var photos = $.map($(this).find("a[href]"), function(atag) {
             	url = $(atag).attr("href");
             	for (var i = processors.length - 1; i >= 0; i--) {
-            		var newElement = processors[i](url);
-            		if(newElement) {
-            			post.append(newElement);
-            		}
+                    processors[i](url, function(newElement){
+                        post.append(newElement);
+                    });
             	};
             });
 
