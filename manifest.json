@@ -12,6 +12,7 @@
     "permissions": [
         "http://alpha.app.net/*",
         "https://alpha.app.net/*",
-        "https://api.twitter.com/*"
+        "https://api.twitter.com/*",
+        "https://itunes.apple.com/lookup*"
     ]
  } 

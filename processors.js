@@ -83,5 +83,38 @@ var processorSetup = function($, processors) {
 		}
 	});
 
+	//iTunes app store support
+	processors.push(function(url, callback) {
+		var html = "<div style='margin-top: 12px;'><img src='{{icon}}' height='80' width='80' style='float:left; padding-right:12px; padding-top: 4px;' /><div><h3>{{trackName}}<br /> <small>{{artistName}}</small></h3>" +
+					"<p>Price: {{price}}<br />Rating: {{rating}}</p></div></div>";
+		var reg = /https?:\/\/itunes.apple.com\/.*?\/app\/.*\/id(.*?)\?/i;
+
+		if(url.search(reg) != -1 ) {
+			url.replace(reg, function(all, match) {
+				console.log("about to check the appstore for with: https://itunes.apple.com/lookup?id=" + match);
+				$.ajax({
+			        url: "https://itunes.apple.com/lookup?id=" + match,
+			        dataType: 'json',
+			        success: function(data) {
+			        	var ret = data.results[0];
+			        	ret.icon = ret.artworkUrl512.replace(".png", ".100x100-75.jpg" );
+			        	console.log(ret.price);
+			        	if(!ret.userRatingCount) {
+			        		ret.rating = "Not yet Rated";
+			        	}
+			        	else {
+			        		ret.rating = ret.averageUserRating + " stars (" + ret.userRatingCount + " reviews)";
+			        	}
+
+
+			        	if(ret.price == 0) ret.price = "Free";
+			        	console.log(ret);
+			            callback(Mustache.render(html,data.results[0]));
+			        }
+			    });
+			} );
+		}
+	});
+
 
 };
