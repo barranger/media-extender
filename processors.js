@@ -52,17 +52,28 @@ var processorSetup = function($, processors) {
 
 	//Adding Tweet support
 	processors.push(function(url, callback) {
-		var tweetHtml = '<blockquote class="twitter-tweet"><p>Search API will now always return "real" Twitter user IDs. The with_twitter_user_id parameter is no longer necessary. An era has ended. ^TS</p>&mdash; Twitter API (@twitterapi) <a href="https://twitter.com/twitterapi/status/133640144317198338" data-datetime="2011-11-07T20:21:07+00:00">November 7, 2011</a></blockquote><script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>';
 		var regularTw = /https?:\/\/twitter.com\/.*?\/status/i;
 
 		if(url.search(regularTw) != -1) {
 			var tweetId = url.substring(url.lastIndexOf("/") + 1);
-			console.log("found tweetId: " + tweetId );
 			
 			$.ajax({
 		        url: "https://api.twitter.com/1/statuses/oembed.json?id=" + tweetId + "&align=center",
 		        success: function(data) {
-		        	console.log(data);
+		            callback('<div style="margin-top: 12px;"">' + data.html + '</div>');
+		        }
+		    });
+		}
+	});
+
+	//Adding Vimeo support
+	processors.push(function(url, callback) {
+		var reg = /https?:\/\/vimeo.com\//i;
+
+		if(url.search(reg) != -1) {
+			$.ajax({
+		        url: "https://vimeo.com/api/oembed.json?maxwidth=435&url=" + url,
+		        success: function(data) {
 		            callback('<div style="margin-top: 12px;"">' + data.html + '</div>');
 		        }
 		    });
