@@ -91,14 +91,12 @@ var processorSetup = function($, processors) {
 
 		if(url.search(reg) != -1 ) {
 			url.replace(reg, function(all, match) {
-				console.log("about to check the appstore for with: https://itunes.apple.com/lookup?id=" + match);
 				$.ajax({
 			        url: "https://itunes.apple.com/lookup?id=" + match,
 			        dataType: 'json',
 			        success: function(data) {
 			        	var ret = data.results[0];
 			        	ret.icon = ret.artworkUrl512.replace(".png", ".100x100-75.jpg" );
-			        	console.log(ret.price);
 			        	if(!ret.userRatingCount) {
 			        		ret.rating = "Not yet Rated";
 			        	}
@@ -108,7 +106,6 @@ var processorSetup = function($, processors) {
 
 
 			        	if(ret.price == 0) ret.price = "Free";
-			        	console.log(ret);
 			            callback(Mustache.render(html,data.results[0]));
 			        }
 			    });
