@@ -1,7 +1,10 @@
-media-extender
-==============
+MediaExtender
+--------------
 
 A chrome extension that adds inline media to your [App.Net](https://alpha.app.net) timeline.
+
+Status
+------
 
 Currently it only supports:
 
@@ -11,10 +14,25 @@ Currently it only supports:
 * imgur
 * twitter
 
-The short-term todo list looks like this:
+Short Term TODOs
+----------------
 
-* Refactor processors to make it easier to add new processors
 * Use mustache for the templating
 * Improve the ui/ux of the inlined media (perhaps a show/hide toggle)
+* Add more Media Types
+
+Installation 
+------------
+1. Download the extension using the ZIP link above and unpack it.
+2. In Chrome, visit chrome://extensions and check "Development mode".
+3. Click on "Load unpacked extension..." and select the folder where you unpacked the extension.
+4. Browse App.Net
+
+Feedback
+--------
+Any comments/suggestions should be directed to [@barranger](https://alpha.app.net/barranger) on App.Net
+
+Credits
+-------
 
 **NOTE:** when starting out this project I borrowed (read: shamelessly stole :) ) code from [SnappShot](https://github.com/johncarney/snappshot). Thanks John!
