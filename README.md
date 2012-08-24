@@ -17,9 +17,9 @@ Currently it only supports:
 Short Term TODOs
 ----------------
 
-* Use mustache for the templating
 * Improve the ui/ux of the inlined media (perhaps a show/hide toggle)
 * Add more Media Types
+* Add an options page to turn the processors on and off individually
 
 Installation 
 ------------
@@ -30,7 +30,7 @@ Installation
 
 Feedback
 --------
-Any comments/suggestions should be directed to [@barranger](https://alpha.app.net/barranger) on App.Net
+Any comments/complaints/media suggestions should be directed to [@barranger](https://alpha.app.net/barranger) on App.Net
 
 Credits
 -------
