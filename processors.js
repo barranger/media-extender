@@ -85,7 +85,7 @@ var processorSetup = function($, processors) {
 
 	//iTunes app store support
 	processors.push(function(url, callback) {
-		var html = "<div style='margin-top: 12px;'><img src='{{icon}}' height='80' width='80' style='float:left; padding-right:12px; padding-top: 4px;' /><div><h3>{{trackName}}<br /> <small>{{artistName}}</small></h3>" +
+		var html = "<div style='margin-top: 12px;'><div class='pull-left thumbnail'><img src='{{icon}}' height='80' width='80' style='float:left; padding-right:12px; padding-top: 4px;' /></div><div><h3>{{trackName}}<br /> <small>{{artistName}}</small></h3>" +
 					"<p>Price: {{price}}<br />Rating: {{rating}}</p></div></div>";
 		var reg = /https?:\/\/itunes.apple.com\/.*?\/app\/.*\/id(.*?)\?/i;
 
