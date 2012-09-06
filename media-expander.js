@@ -1,6 +1,7 @@
 (function ($) {
 
 	var processors = new Array();
+  var imageUploader = new ImageUploader("fc284497622fb0e57da75597b75c49bf");
 
  	function processPost(post_container) {
         $(post_container).find(".body .post-text").each(function() {
@@ -47,4 +48,10 @@
         processPost(this);
     });
 
+    $(document).ready(function() {
+      imageUploader.setup();
+    });
+    
+
+    
 })(jQuery);

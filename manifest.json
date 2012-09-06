@@ -6,7 +6,7 @@
  	"content_scripts": [
         {
             "matches": [ "http://alpha.app.net/*", "https://alpha.app.net/*" ],
-            "js":      [ "lib/jquery-1.8.0.min.js", "lib/mustache.js", "processors.js", "media-expander.js" ]
+            "js":      [ "lib/jquery-1.8.0.min.js", "lib/mustache.js", "processors.js", "image-upload.js", "media-expander.js" ]
         }
     ],
     "permissions": [
